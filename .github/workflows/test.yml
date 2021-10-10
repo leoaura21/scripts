@@ -1,0 +1,20 @@
+name: test
+
+on:
+  push:
+    paths: test/**
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out
+      uses: actions/checkout@v2
+    
+    - name: Install Dependencies
+      run: ./install-deps.sh
+      
+    - name: Doing make -C test
+      run: make -C test
